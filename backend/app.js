@@ -18,6 +18,7 @@ app.use("/api/employee", employeeRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/shoppingCart", shoppingCartRoutes);
 app.use("/api/sale", saleRoutes);
+
 app.use("/api/login", loginRoutes);
 
 export default App;
