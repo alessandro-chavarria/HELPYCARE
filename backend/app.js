@@ -6,10 +6,7 @@ import employeeRoutes from "./src/routes/employee.js";
 import productRoutes from "./src/routes/product.js";
 import shoppingCartRoutes from "./src/routes/shoppingCart.js";
 import saleRoutes from "./src/routes/sale.js";
-import React from 'react';
-import CheerleaderImage from './components/CheerleaderImage';
-import LoginForm from './components/LoginForm';
-import './styles/App.css';
+import loginRoutes from "./src/routes/login.js";
 
 const app = express();
 app.use (express.json());
@@ -21,13 +18,6 @@ app.use("/api/employee", employeeRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/shoppingCart", shoppingCartRoutes);
 app.use("/api/sale", saleRoutes);
-
-function App() {
-  return (
-    <div className="app">
-      <LoginForm />
-    </div>
-  );
-}
+app.use("/api/login", loginRoutes);
 
 export default App;
