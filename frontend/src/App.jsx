@@ -8,7 +8,7 @@ import InicioSesion from './components/InicioSesion';
 import RecuperacionContra from './components/RecuperacionContra';
 import PaginaDetalleProducto from './components/PaginaDetalleProducto';
 import PaginaInicio from './components/PaginaInicio'; // Importamos el nuevo componente
-
+import PaginaProductos from './components/ProductPage';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -29,6 +29,12 @@ function App() {
         
         {/* Ruta para la página de detalle de producto */}
         <Route path="/producto" element={<PaginaDetalleProducto />} />
+
+        {/* Ruta para la página de  productos */}
+        <Route path="/productos" element={<PaginaProductos />} />
+
+
+
         
         {/* Página de ejemplo de Vite+React (puedes eliminarla más adelante) */}
         <Route path="/vite-example" element={

@@ -1,0 +1,161 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+ 
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #2470B2;
+    color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-menu li {
+    margin: 0 15px;
+  }
+  
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .carrito a {
+    color: white;
+  }
+  
+  
+  .productos-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+  
+  .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  /* Estilos de las tarjetas de producto */
+  .producto-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .producto-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .producto-imagen {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .producto-imagen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .producto-nombre {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .producto-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .estrellas {
+    display: flex;
+  }
+  
+  .estrella {
+    color: #ccc;
+    font-size: 18px;
+  }
+  
+  .estrella.activa {
+    color: #ffc107;
+  }
+  
+  .resenas {
+    margin-left: 5px;
+    color: #777;
+    font-size: 14px;
+  }
+  
+  .producto-precio {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* responsiv3 */
+  @media (max-width: 900px) {
+    .productos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .productos-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .nav-menu {
+      display: none;
+    }
+  }
