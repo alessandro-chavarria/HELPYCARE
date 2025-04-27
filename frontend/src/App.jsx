@@ -8,7 +8,7 @@ import InicioSesion from './components/InicioSesion';
 import RecuperacionContra from './components/RecuperacionContra';
 import PaginaDetalleProducto from './components/PaginaDetalleProducto';
 import PaginaInicio from './components/PaginaInicio'; // Importamos el nuevo componente
-import PaginaProductos from './components/ProductPage';
+import PaginaProductos from './components/PaginaProductos';
 function App() {
   const [count, setCount] = useState(0);
 
