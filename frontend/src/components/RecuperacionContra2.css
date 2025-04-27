@@ -1,0 +1,97 @@
+.login-container {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .login-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: auto 0 auto 15%;
+    z-index: 2;
+  }
+  
+  .login-card h2 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .login-card p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .login-card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .login-button {
+    background-color: #9c27b0;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #7b1fa2;
+  }
+  
+  .character-container {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    z-index: 1;
+  }
+  
+  .cheerleader {
+    height: 400px;
+    animation: bounce 2s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .login-container {
+      flex-direction: column;
+    }
+    
+    .login-card {
+      margin: 50px auto;
+    }
+    
+    .character-container {
+      position: relative;
+      right: auto;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .cheerleader {
+      height: 300px;
+    }
+  }

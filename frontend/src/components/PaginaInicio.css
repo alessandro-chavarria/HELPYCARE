@@ -1,0 +1,158 @@
+.pagina-inicio-container {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  /* Fondo con curva azul */
+  .pagina-inicio-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    background-color: #2e8bc0;
+    z-index: 0;
+    border-radius: 100% 0 0 0;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    height: 25px;
+    margin-right: 5px;
+  }
+  
+  .logo-text {
+    color: #2e8bc0;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-menu li {
+    margin-left: 20px;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .nav-menu a.active {
+    color: #2e8bc0;
+  }
+  
+  .cart {
+    color: #666;
+  }
+  
+  .main-content {
+    display: flex;
+    height: calc(100% - 60px);
+    padding: 0 50px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 30px;
+  }
+  
+  .left-content h1 {
+    font-size: 40px;
+    color: #2e8bc0;
+    margin-bottom: 10px;
+  }
+  
+  .slogan {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-comprar {
+    background-color: #7749F8;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .btn-ver {
+    background-color: #e0e0e0;
+    color: #666;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .right-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product-image {
+    max-height: 70%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    .left-content {
+      align-items: center;
+      text-align: center;
+      padding-right: 0;
+      margin-bottom: 30px;
+    }
+    
+    .pagina-inicio-container::before {
+      width: 100%;
+      height: 60%;
+      border-radius: 0;
+    }
+  }

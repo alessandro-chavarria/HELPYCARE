@@ -1,0 +1,139 @@
+.bienvenida-background {
+  background-color: #1a202c;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.bienvenida-container {
+  background-color: #4299e1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 900px;
+  height: 500px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.bienvenida-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0;
+  padding-top: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.app-name {
+  font-size: 3rem;
+  display: block;
+  margin-top: 5px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 250px;
+  margin-bottom: 30px;
+}
+
+.action-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.primary-button {
+  background-color: #9c27b0;
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #7b1fa2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-button {
+  background-color: #4cd3c2;
+  color: white;
+}
+
+.secondary-button:hover {
+  background-color: #3db9aa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.characters-container {
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  height: 80%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.characters {
+  height: 90%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .bienvenida-container {
+    height: auto;
+    padding-bottom: 250px;
+  }
+  
+  .bienvenida-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .app-name {
+    font-size: 2.5rem;
+  }
+  
+  .buttons-container {
+    margin: 30px auto;
+  }
+  
+  .characters-container {
+    position: absolute;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    bottom: 0;
+  }
+  
+  .characters {
+    height: auto;
+    width: 300px;
+    max-width: 100%;
+  }
+}

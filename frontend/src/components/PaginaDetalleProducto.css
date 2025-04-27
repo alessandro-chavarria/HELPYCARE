@@ -1,0 +1,289 @@
+.contenedor-pagina-producto {
+    font-family: 'Arial', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #1e293b;
+    color: white;
+    padding: 15px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .logo a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navegacion {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navegacion span {
+    margin: 0 15px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .navegacion a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .icono-carrito {
+    margin-left: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .migas-de-pan {
+    padding: 15px 0;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .contenido-producto {
+    display: flex;
+    margin: 30px 0;
+  }
+  
+  .imagenes-producto {
+    flex: 1;
+    padding-right: 30px;
+  }
+  
+  .imagen-principal {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .imagenes-pequenas {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .imagenes-pequenas img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .info-producto {
+    flex: 1;
+    padding-left: 30px;
+    border-left: 1px solid #e0e0e0;
+  }
+  
+  .info-producto h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .precio-producto {
+    margin-bottom: 20px;
+  }
+  
+  .precio {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0066cc;
+  }
+  
+  .selector-cantidad {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn-cantidad {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  
+  .cantidad {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 10px;
+  }
+  
+  .btn-agregar-carrito {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+  }
+  
+  .btn-agregar-carrito:hover {
+    background-color: #0052a3;
+  }
+  
+  .descripcion-producto {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+  }
+  
+  .descripcion-producto h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .descripcion-producto p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .descripcion-producto ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .descripcion-producto li {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .seccion-resenas {
+    margin-top: 40px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+  }
+  
+  .seccion-resenas h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .calificaciones {
+    display: flex;
+  }
+  
+  .estrellas-calificacion {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .valor-calificacion {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .estrellas {
+    color: #ffcc00;
+    font-size: 24px;
+  }
+  
+  .barras-calificacion {
+    flex: 2;
+    padding-left: 30px;
+  }
+  
+  .barra-calificacion {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .barra-calificacion span {
+    width: 30px;
+    text-align: center;
+  }
+  
+  .contenedor-barra {
+    flex: 1;
+    height: 12px;
+    background-color: #f0f0f0;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .relleno-barra {
+    height: 100%;
+    background-color: #ffcc00;
+  }
+  
+  .pie-pagina {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 768px) {
+    .contenido-producto {
+      flex-direction: column;
+    }
+    
+    .imagenes-producto {
+      padding-right: 0;
+      margin-bottom: 30px;
+    }
+    
+    .info-producto {
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 20px;
+    }
+    
+    .calificaciones {
+      flex-direction: column;
+    }
+    
+    .estrellas-calificacion {
+      margin-bottom: 20px;
+    }
+    
+    .barras-calificacion {
+      padding-left: 0;
+    }
+  }
