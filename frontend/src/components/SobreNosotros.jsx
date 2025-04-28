@@ -8,25 +8,19 @@ const SobreNosotros = () => {
       {/* Header */}
       <header className="header">
         <div className="logo">
-          <img src="/assets/logo.png" alt="helpycare" />
-          <span>helpycare</span>
+          <img src="/src/assets/logo.png" alt="HelpyCare Logo" className="logo-img" />
+          <span></span>
         </div>
         
         <nav className="nav-menu">
           <ul>
-            <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/productos">Productos</Link></li>
-            <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
+            <li><Link to="/" className="active">Inicio</Link></li>
+            <li><Link to="/productos" className="active">Productos</Link></li>
+            <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
           </ul>
         </nav>
         
-        <div className="carrito-icon">
-          <Link to="/carrito">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-            </svg>
-          </Link>
-        </div>
+       
       </header>
 
       {/* Contenido principal */}
@@ -123,21 +117,18 @@ const SobreNosotros = () => {
                   <img src="/assets/team/team1.png" alt="" />
                 </div>
                 <h3>Enrique Chavarria</h3>
-                
               </div>
               <div className="equipo-item">
                 <div className="equipo-img">
                   <img src="/assets/team/team2.png" alt="" />
                 </div>
                 <h3>Carlos Henriquez</h3>
-                
               </div>
               <div className="equipo-item">
                 <div className="equipo-img">
                   <img src="/assets/team/team3.png" alt="" />
                 </div>
                 <h3>Gabriel Garcia</h3>
-                
               </div>
             </div>
           </div>
@@ -153,34 +144,27 @@ const SobreNosotros = () => {
               </p>
             </div>
             <div className="mensaje-img">
-              <img src="/assets/ilustracion-personas.png" alt="Ilustración" />
+              <img src="/assets/pareja-ancianos.png" alt="Pareja de ancianos" />
             </div>
           </div>
 
-          {/* Sección de contacto */}
-          <div className="contacto-section">
-            <button className="btn-contacto">CONTÁCTANOS</button>
-            <div className="redes-sociales">
-              <a href="" target="_blank" rel="noopener noreferrer" className="social-icon">
-                <img src="/assets/social/instagram.png" alt="Instagram" />
-                <span>HelpyCare</span>
-              </a>
-              <a href="" target="_blank" rel="noopener noreferrer" className="social-icon">
-                <img src="/assets/social/facebook.png" alt="Facebook" />
-                <span>HelpyCare</span>
-              </a>
-              <a href="" className="social-icon">
-                <img src="/assets/social/gmail.png" alt="Email" />
-                <span>HelpyCare@gmail.com</span>
-              </a>
-            </div>
-            <div className="terminos">
-              <Link to="/terminos">Términos y Condiciones</Link>
+      {/* Sección de contacto - centrada como solicitaste */}
+      <div style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: '30px'
+          }}> 
+      
+              
+              <div className="terminos" style={{marginTop: '15px'}}>
+                <Link to="/terminos" style={{color: '#6698e8', textDecoration: 'none'}}>Términos y Condiciones</Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

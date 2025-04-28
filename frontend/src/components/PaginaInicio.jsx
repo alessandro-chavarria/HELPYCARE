@@ -43,7 +43,6 @@ function PaginaInicio() {
   return (
     <div className="pagina-inicio-container">
       <div className="announcement-bar">
-        <p>Envío gratuito en pedidos superiores a $500 | Garantía de 2 años en todos los productos</p>
       </div>
 
       <div className="header">
@@ -59,18 +58,11 @@ function PaginaInicio() {
         <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
             <li><a href="/" className="active">Inicio</a></li>
-            <li><a href="/productos">Productos</a></li>
-            <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
-            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="/productos"  className="active">Productos</a></li>
+            <li><a href="/sobre-nosotros"  className="active">Sobre Nosotros</a></li>
           </ul>
         </nav>
-        
-        <div className="cart-container">
-          <a href="/carrito" className="cart">
-            <FontAwesomeIcon icon={faShoppingCart} />
-            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-          </a>
-        </div>
+       
       </div>
 
       <div className="main-content">
@@ -92,10 +84,7 @@ function PaginaInicio() {
               <p>Soporte técnico personalizado</p>
             </div>
           </div>
-          <div className="buttons">
-            <button className="btn-comprar" onClick={addToCart}>Comprar ahora</button>
-            <button className="btn-ver">Ver más</button>
-          </div>
+
         </div>
         
         <div className="right-content">
@@ -152,14 +141,6 @@ function PaginaInicio() {
         </div>
       </div>
 
-      <div className="cta-section">
-        <div className="cta-content">
-          <h2>¿Necesitas ayuda para elegir?</h2>
-          <p>Nuestros especialistas están disponibles para asesorarte sobre el modelo que mejor se adapte a tus necesidades.</p>
-          <button className="btn-contacto">Agendar consulta gratuita</button>
-        </div>
-      </div>
-
       <footer className="footer">
         <div className="footer-top">
           <div className="footer-col">
@@ -178,7 +159,6 @@ function PaginaInicio() {
               <li><a href="/">Inicio</a></li>
               <li><a href="/productos">Productos</a></li>
               <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
-              <li><a href="/contacto">Contacto</a></li>
             </ul>
           </div>
           
@@ -189,12 +169,6 @@ function PaginaInicio() {
           </div>
           
           <div className="footer-col">
-            <h3>Suscríbete</h3>
-            <p>Recibe nuestras novedades y ofertas exclusivas</p>
-            <form className="subscribe-form">
-              <input type="email" placeholder="Tu correo electrónico" />
-              <button type="submit">Suscribirse</button>
-            </form>
           </div>
         </div>
         

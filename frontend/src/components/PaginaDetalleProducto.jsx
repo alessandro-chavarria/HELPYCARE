@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import './PaginaDetalleProducto.css';
 
+
 // Componente CarritoEmergente
 const CarritoEmergente = ({ onClose }) => {
   const navigate = useNavigate();
@@ -278,25 +279,19 @@ const PaginaDetalleProducto = () => {
       {/* Header */}
       <header className="header">
         <div className="logo">
-          <img src="/assets/logo.png" alt="helpycare" />
-          <span>helpycare</span>
+        <img src="/src/assets/logo.png" alt="HelpyCare Logo" className="logo-img" />
+          <span></span>
         </div>
         
         <nav className="nav-menu">
           <ul>
-            <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/productos">Productos</Link></li>
-            <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
+            <li><Link to="/" className="active">Inicio</Link></li>
+            <li><Link to="/productos" className="active">Productos</Link></li>
+            <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
           </ul>
         </nav>
         
-        <div className="carrito-icon">
-          <Link to="/carrito">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-            </svg>
-          </Link>
-        </div>
+       
       </header>
 
       {/* Migas de pan */}

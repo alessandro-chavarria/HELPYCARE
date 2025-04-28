@@ -59,7 +59,7 @@ const FinalizarCompra = () => {
       <header className="header">
         <div className="logo">
           <img src="/assets/logo.png" alt="helpycare" />
-          <span>helpycare</span>
+          <span></span>
         </div>
         
         <nav className="nav-menu">
