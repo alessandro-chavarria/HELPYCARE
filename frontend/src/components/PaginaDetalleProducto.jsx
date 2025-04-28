@@ -2,6 +2,174 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import './PaginaDetalleProducto.css';
 
+// Componente CarritoEmergente
+const CarritoEmergente = ({ onClose }) => {
+  const navigate = useNavigate();
+  const [productosCarrito, setProductosCarrito] = useState([]);
+  const [subtotal, setSubtotal] = useState(0);
+  const [productosRelacionados, setProductosRelacionados] = useState([]);
+  
+  // Cargar productos del carrito y productos relacionados
+  useEffect(() => {
+    // Cargar productos del carrito
+    const carritoItems = JSON.parse(localStorage.getItem('carrito')) || [];
+    setProductosCarrito(carritoItems);
+    
+    // Calcular subtotal
+    const total = carritoItems.reduce(
+      (sum, item) => sum + (item.precio * item.cantidad), 0
+    );
+    setSubtotal(total);
+    
+    // Cargar productos relacionados
+    const todosProductos = JSON.parse(localStorage.getItem('productos')) || [];
+    if (carritoItems.length > 0) {
+      // Filtrar productos que no están en el carrito
+      const productosNoEnCarrito = todosProductos.filter(
+        prod => !carritoItems.some(item => item.id === prod.id)
+      );
+      
+      // Tomar 2 productos aleatorios
+      const relacionados = productosNoEnCarrito
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 2);
+      
+      setProductosRelacionados(relacionados);
+    } else {
+      // Si no hay productos en el carrito, mostrar productos aleatorios
+      const relacionados = todosProductos
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 2);
+      
+      setProductosRelacionados(relacionados);
+    }
+  }, []);
+  
+  // Actualizar cantidad de un producto
+  const actualizarCantidad = (id, cantidad) => {
+    if (cantidad < 1) return;
+    
+    const nuevosProductos = productosCarrito.map(item => {
+      if (item.id === id) {
+        return {...item, cantidad: cantidad};
+      }
+      return item;
+    });
+    
+    setProductosCarrito(nuevosProductos);
+    
+    // Actualizar localStorage
+    localStorage.setItem('carrito', JSON.stringify(nuevosProductos));
+    
+    // Recalcular subtotal
+    const total = nuevosProductos.reduce(
+      (sum, item) => sum + (item.precio * item.cantidad), 0
+    );
+    setSubtotal(total);
+  };
+  
+  // Eliminar producto del carrito
+  const eliminarProducto = (id) => {
+    const nuevosProductos = productosCarrito.filter(item => item.id !== id);
+    setProductosCarrito(nuevosProductos);
+    
+    // Actualizar localStorage
+    localStorage.setItem('carrito', JSON.stringify(nuevosProductos));
+    
+    // Recalcular subtotal
+    const total = nuevosProductos.reduce(
+      (sum, item) => sum + (item.precio * item.cantidad), 0
+    );
+    setSubtotal(total);
+  };
+  
+  // Función para finalizar compra - REDIRECCIÓN DIRECTA
+  const finalizarCompra = () => {
+    navigate('/finalizar-compra');
+    onClose(); // Cerrar el carrito al navegar
+  };
+  
+  return (
+    <div className="carrito-sidebar-overlay">
+      <div className="carrito-sidebar">
+        <div className="carrito-header">
+          <h3>Carrito de compras</h3>
+          <button className="btn-cerrar" onClick={onClose}>×</button>
+        </div>
+        
+        {productosCarrito.length === 0 ? (
+          <div className="carrito-vacio">
+            <p>Tu carrito está vacío</p>
+          </div>
+        ) : (
+          <>
+            <div className="carrito-productos-lista">
+              {productosCarrito.map(item => (
+                <div key={item.id} className="carrito-producto">
+                  <div className="carrito-producto-imagen">
+                    <img src={item.imagen} alt={item.nombre} />
+                  </div>
+                  <div className="carrito-producto-info">
+                    <p className="carrito-producto-nombre">{item.nombre}</p>
+                    <p className="carrito-producto-precio">Precio: $ {item.precio.toFixed(2)}</p>
+                    <div className="carrito-cantidad">
+                      <button 
+                        className="btn-decrementar" 
+                        onClick={() => actualizarCantidad(item.id, item.cantidad - 1)}
+                      >
+                        -
+                      </button>
+                      <input 
+                        type="number" 
+                        min="1" 
+                        value={item.cantidad} 
+                        onChange={(e) => actualizarCantidad(item.id, parseInt(e.target.value) || 1)} 
+                      />
+                      <button 
+                        className="btn-incrementar" 
+                        onClick={() => actualizarCantidad(item.id, item.cantidad + 1)}
+                      >
+                        +
+                      </button>
+                      <button 
+                        className="btn-eliminar"
+                        onClick={() => eliminarProducto(item.id)}
+                      >
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                          <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="carrito-subtotal">
+              <p>Sub Total: <span>$ {subtotal.toFixed(2)}</span></p>
+            </div>
+            
+            <button className="btn-finalizar" onClick={finalizarCompra}>Finalizar compra</button>
+          </>
+        )}
+        
+        <div className="productos-recomendados">
+          <p>Puede Interesarte:</p>
+          <div className="recomendados-grid">
+            {productosRelacionados.map(prod => (
+              <div key={prod.id} className="producto-recomendado">
+                <Link to={`/producto/${prod.id}`} onClick={onClose}>
+                  <img src={prod.imagen} alt={prod.nombre} />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const PaginaDetalleProducto = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -54,7 +222,7 @@ const PaginaDetalleProducto = () => {
     return estrellas;
   };
   
-  // Función para agregar al carrito
+  // Función para agregar al carrito (actualizada)
   const agregarAlCarrito = () => {
     // Obtener el carrito actual del localStorage o inicializar uno nuevo
     const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -71,7 +239,7 @@ const PaginaDetalleProducto = () => {
         id: producto.id,
         nombre: producto.nombre,
         precio: producto.precio,
-        imagen: producto.imagen,
+        imagen: producto.imagenes ? producto.imagenes[0] : producto.imagen,
         cantidad: quantity
       });
     }
@@ -103,11 +271,6 @@ const PaginaDetalleProducto = () => {
   // Función para cambiar la imagen seleccionada
   const cambiarImagen = (index) => {
     setSelectedImage(index);
-  };
-
-  // Función para ir a la página de finalizar compra
-  const finalizarCompra = () => {
-    navigate('/carrito');
   };
 
   return (
@@ -284,60 +447,9 @@ const PaginaDetalleProducto = () => {
         </div>
       </div>
 
-      {/* Carrito de compras (sidebar derecho) */}
+      {/* Carrito de compras (lado derecho) - Actualizado para navegar directamente */}
       {showCart && (
-        <div className="carrito-sidebar-overlay">
-          <div className="carrito-sidebar">
-            <div className="carrito-header">
-              <h3>Carrito de compras</h3>
-              <button className="btn-cerrar" onClick={cerrarCarrito}>×</button>
-            </div>
-            
-            <div className="carrito-producto">
-              <div className="carrito-producto-imagen">
-                <img src={producto.imagen} alt={producto.nombre} />
-              </div>
-              <div className="carrito-producto-info">
-                <p className="carrito-producto-nombre">{producto.nombre}</p>
-                <p className="carrito-producto-precio">Precio: $ {producto.precio.toFixed(2)}</p>
-                <div className="carrito-cantidad">
-                  <button className="btn-decrementar" onClick={decrementarCantidad}>-</button>
-                  <input 
-                    type="number" 
-                    min="1" 
-                    value={quantity} 
-                    onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} 
-                  />
-                  <button className="btn-incrementar" onClick={incrementarCantidad}>+</button>
-                  <button className="btn-eliminar">
-                    <svg viewBox="0 0 24 24" width="20" height="20">
-                      <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <div className="carrito-subtotal">
-              <p>Sub Total: <span>$ {(producto.precio * quantity).toFixed(2)}</span></p>
-            </div>
-            
-            <button className="btn-finalizar" onClick={finalizarCompra}>Finalizar compra</button>
-            
-            <div className="productos-recomendados">
-              <p>Puede Interesarte:</p>
-              <div className="recomendados-grid">
-                {productosRelacionados.map(prod => (
-                  <div key={prod.id} className="producto-recomendado">
-                    <Link to={`/producto/${prod.id}`} onClick={cerrarCarrito}>
-                      <img src={prod.imagen} alt={prod.nombre} />
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        <CarritoEmergente onClose={cerrarCarrito} />
       )}
     </div>
   );

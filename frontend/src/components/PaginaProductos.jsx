@@ -87,7 +87,7 @@ const PaginaProductos = () => {
     }
   ];
 
-  // Guardar los productos en localStorage para acceder desde PaginaDetalleProducto
+
   React.useEffect(() => {
     localStorage.setItem('productos', JSON.stringify(productos));
   }, []);

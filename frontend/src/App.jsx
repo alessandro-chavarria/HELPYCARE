@@ -9,7 +9,8 @@ import RecuperacionContra from './components/RecuperacionContra';
 import PaginaDetalleProducto from './components/PaginaDetalleProducto';
 import PaginaInicio from './components/PaginaInicio';
 import PaginaProductos from './components/PaginaProductos';
-import SobreNosotros from './components/SobreNosotros'; // Importamos el nuevo componente
+import SobreNosotros from './components/SobreNosotros';
+import FinalizarCompra from './components/FinalizarCompra'; // 👈 nueva importación
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,28 +18,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Ruta para la página de inicio principal */}
         <Route path="/" element={<PaginaInicio />} />
-        
-        {/* Ruta para la página de bienvenida */}
         <Route path="/bienvenida" element={<BienvenidaPage />} />
-        
-        {/* Ruta para la página de inicio de sesión */}
         <Route path="/login" element={<InicioSesion />} />
-        
-        {/* Ruta para la página de recuperación de contraseña */}
         <Route path="/recovery" element={<RecuperacionContra />} />
-        
-        {/* Ruta para la página de detalle de producto */}
         <Route path="/producto/:id" element={<PaginaDetalleProducto />} />
-
-        {/* Ruta para la página de productos */}
         <Route path="/productos" element={<PaginaProductos />} />
-        
-        {/* Ruta para la página de sobre nosotros */}
         <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-        
-        {/* Página de ejemplo de Vite+React (puedes eliminarla más adelante) */}
+        <Route path="/finalizar-compra" element={<FinalizarCompra />} /> {/* 👈 nueva ruta */}
         <Route path="/vite-example" element={
           <>
             <div>

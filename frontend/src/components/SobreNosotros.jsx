@@ -161,17 +161,17 @@ const SobreNosotros = () => {
           <div className="contacto-section">
             <button className="btn-contacto">CONTÁCTANOS</button>
             <div className="redes-sociales">
-              <a href="https://instagram.com/helpycare" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <img src="/assets/social/instagram.png" alt="Instagram" />
                 <span>HelpyCare</span>
               </a>
-              <a href="https://facebook.com/helpycare" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <img src="/assets/social/facebook.png" alt="Facebook" />
                 <span>HelpyCare</span>
               </a>
-              <a href="mailto:HelpyCare13@gmail.com" className="social-icon">
+              <a href="" className="social-icon">
                 <img src="/assets/social/gmail.png" alt="Email" />
-                <span>HelpyCare13@gmail.com</span>
+                <span>HelpyCare@gmail.com</span>
               </a>
             </div>
             <div className="terminos">
