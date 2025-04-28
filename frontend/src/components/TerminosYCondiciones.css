@@ -1,0 +1,178 @@
+/* TerminosYCondiciones.css */
+.terminos-container {
+    font-family: 'Arial', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Header styles */
+  .header {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .nav-menu a:hover {
+    text-decoration: underline;
+  }
+  
+  .carrito-icon svg {
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Main content styles */
+  .terminos-main {
+    padding: 30px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .terminos-header {
+    margin-bottom: 30px;
+  }
+  
+  .terminos-header h1 {
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+  }
+  
+  .terminos-content {
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .terminos-section {
+    margin-bottom: 25px;
+  }
+  
+  .terminos-section h2 {
+    color: #3498db;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .terminos-section ul {
+    margin-left: 25px;
+    margin-bottom: 15px;
+  }
+  
+  .terminos-section li {
+    margin-bottom: 8px;
+  }
+  
+  /* Contact section */
+  .contacto-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+  
+  .btn-contacto {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .btn-contacto:hover {
+    background-color: #2980b9;
+  }
+  
+  .redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .social-icon img {
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .terminos {
+    margin-top: 20px;
+  }
+  
+  .terminos a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .terminos a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      padding: 15px;
+    }
+    
+    .nav-menu ul {
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .carrito-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    
+    .terminos-main {
+      padding: 20px;
+    }
+    
+    .redes-sociales {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }

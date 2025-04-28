@@ -10,11 +10,12 @@ import PaginaDetalleProducto from './components/PaginaDetalleProducto';
 import PaginaInicio from './components/PaginaInicio';
 import PaginaProductos from './components/PaginaProductos';
 import SobreNosotros from './components/SobreNosotros';
-import FinalizarCompra from './components/FinalizarCompra'; // 👈 nueva importación
+import FinalizarCompra from './components/FinalizarCompra';
+import TerminosYCondiciones from './components/TerminosYCondiciones'; 
 
 function App() {
   const [count, setCount] = useState(0);
-
+  
   return (
     <Router>
       <Routes>
@@ -25,7 +26,8 @@ function App() {
         <Route path="/producto/:id" element={<PaginaDetalleProducto />} />
         <Route path="/productos" element={<PaginaProductos />} />
         <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-        <Route path="/finalizar-compra" element={<FinalizarCompra />} /> {/* 👈 nueva ruta */}
+        <Route path="/finalizar-compra" element={<FinalizarCompra />} />
+        <Route path="/terminos" element={<TerminosYCondiciones />} /> 
         <Route path="/vite-example" element={
           <>
             <div>
