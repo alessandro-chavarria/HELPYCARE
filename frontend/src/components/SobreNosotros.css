@@ -1,0 +1,348 @@
+.sobre-nosotros-container {
+    font-family: 'Arial', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Estilos para el header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #4a90e2;
+    color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .logo span {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+  }
+  
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .nav-menu a:hover {
+    text-decoration: underline;
+  }
+  
+  .carrito-icon {
+    margin-left: 20px;
+  }
+  
+  .carrito-icon svg {
+    color: white;
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Estilos para el contenido principal */
+  .sobre-nosotros-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .sobre-nosotros-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .sobre-nosotros-header h1 {
+    font-size: 32px;
+    color: #333;
+    border-bottom: 2px solid #4a90e2;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  /* Estilos para las secciones de información */
+  .info-sections {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+  
+  .info-section {
+    width: 30%;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .section-header h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+  
+  .section-content {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .section-content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Estilos para la sección de valores */
+  .valores-section {
+    margin-bottom: 50px;
+  }
+  
+  .valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .valor-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .valor-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .valor-icon {
+    font-size: 40px;
+    color: #4a90e2;
+    margin-bottom: 15px;
+  }
+  
+  .valor-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .valor-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Estilos para la sección de equipo */
+  .equipo-section {
+    margin-bottom: 50px;
+  }
+  
+  .equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .equipo-item {
+    text-align: center;
+  }
+  
+  .equipo-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    border: 3px solid #4a90e2;
+  }
+  
+  .equipo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .equipo-item h3 {
+    margin: 0 0 5px;
+    color: #333;
+  }
+  
+  .equipo-item p {
+    margin: 0;
+    color: #666;
+  }
+  
+  /* Estilos para la sección de mensaje */
+  .mensaje-section {
+    display: flex;
+    align-items: center;
+    background-color: #4a90e2;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    color: white;
+  }
+  
+  .mensaje-content {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  .mensaje-content h2 {
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .mensaje-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .mensaje-img {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .mensaje-img img {
+    max-width: 100%;
+    max-height: 300px;
+  }
+  
+  /* Estilos para la sección de contacto */
+  .contacto-section {
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+  }
+  
+  .btn-contacto {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-contacto:hover {
+    background-color: #357ebd;
+  }
+  
+  .redes-sociales {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .social-icon img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .terminos {
+    margin-top: 20px;
+  }
+  
+  .terminos a {
+    color: #4a90e2;
+    text-decoration: none;
+  }
+  
+  .terminos a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 992px) {
+    .info-section {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .section-content {
+      height: auto;
+    }
+    
+    .mensaje-section {
+      flex-direction: column;
+    }
+    
+    .mensaje-content {
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      padding: 15px;
+    }
+    
+    .nav-menu {
+      margin: 15px 0;
+    }
+    
+    .nav-menu ul {
+      gap: 15px;
+    }
+    
+    .carrito-icon {
+      margin-left: 0;
+    }
+    
+    .valores-grid,
+    .equipo-grid {
+      grid-template-columns: 1fr;
+    }
+  }
