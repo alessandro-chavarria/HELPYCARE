@@ -1,38 +1,211 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './PaginaInicio.css';
-import audifono from '../assets/cometa.jpg'; // Asegúrate de tener esta imagen o reemplázala
+import audifono from '../assets/audifono1.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart, faBars, faEnvelope, faPhone, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 function PaginaInicio() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+  const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  
+  const featuredProducts = [
+    { id: 1, name: "Audífono Digital Premium", price: "$299.99", image: audifono },
+    { id: 2, name: "Audífono Mini Discreto", price: "$249.99", image: audifono },
+    { id: 3, name: "Audífono Recargable Plus", price: "$329.99", image: audifono },
+  ];
+
+  const testimonials = [
+    { id: 1, name: "María G.", age: 68, text: "HelpyCare cambió mi vida. Ahora puedo disfrutar de las conversaciones familiares nuevamente." },
+    { id: 2, name: "Carlos P.", age: 72, text: "Excelente servicio y productos de calidad. El soporte técnico es increíble." },
+    { id: 3, name: "Ana L.", age: 65, text: "Después de probar varias marcas, HelpyCare es sin duda la mejor opción para mí." },
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const testimonialTimer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    
+    return () => clearInterval(testimonialTimer);
+  }, [testimonials.length]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const addToCart = () => {
+    setCartCount(cartCount + 1);
+  };
+
   return (
     <div className="pagina-inicio-container">
+      <div className="announcement-bar">
+        <p>Envío gratuito en pedidos superiores a $500 | Garantía de 2 años en todos los productos</p>
+      </div>
+
       <div className="header">
         <div className="logo">
           <img src="/src/assets/logo.png" alt="HelpyCare Logo" className="logo-img" />
-          <span className="logo-text">helpyCare</span>
+          <span className="logo-text"></span>
         </div>
-        <nav className="nav-menu">
+        
+        <div className="mobile-menu-button" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
+        
+        <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
             <li><a href="/" className="active">Inicio</a></li>
             <li><a href="/productos">Productos</a></li>
             <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
-            <li><a href="/carrito" className="cart"><i className="fas fa-shopping-cart"></i></a></li>
+            <li><a href="/contacto">Contacto</a></li>
           </ul>
         </nav>
+        
+        <div className="cart-container">
+          <a href="/carrito" className="cart">
+            <FontAwesomeIcon icon={faShoppingCart} />
+            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+          </a>
+        </div>
       </div>
 
       <div className="main-content">
         <div className="left-content">
+          <div className="hero-badge">Tecnología Avanzada</div>
           <h1>Esto es HelpyCare</h1>
           <p className="slogan">"Cuidamos de ti por qué cada año cuenta"</p>
+          <div className="features">
+            <div className="feature-item">
+              <div className="feature-icon">✓</div>
+              <p>Calidad premium garantizada</p>
+            </div>
+            <div className="feature-item">
+              <div className="feature-icon">✓</div>
+              <p>Tecnología de última generación</p>
+            </div>
+            <div className="feature-item">
+              <div className="feature-icon">✓</div>
+              <p>Soporte técnico personalizado</p>
+            </div>
+          </div>
           <div className="buttons">
-            <button className="btn-comprar">Comprar ahora</button>
+            <button className="btn-comprar" onClick={addToCart}>Comprar ahora</button>
             <button className="btn-ver">Ver más</button>
           </div>
         </div>
+        
         <div className="right-content">
-          <img src={audifono} alt="Audífono HelpyCare" className="product-image" />
+          <div className="product-image-container">
+            <img src={audifono} alt="Audífono HelpyCare" className="product-image bounce-animation" />
+            <div className="product-badge">¡Nuevo!</div>
+          </div>
         </div>
       </div>
+
+      <div className="testimonials-section">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div className="testimonials-container">
+          <div className="testimonial-card">
+            <div className="testimonial-content">
+              <p>"{testimonials[currentTestimonial].text}"</p>
+            </div>
+            <div className="testimonial-author">
+              <p>{testimonials[currentTestimonial].name}, {testimonials[currentTestimonial].age} años</p>
+            </div>
+          </div>
+          <div className="testimonial-dots">
+            {testimonials.map((_, index) => (
+              <span 
+                key={index} 
+                className={`dot ${index === currentTestimonial ? 'active' : ''}`}
+                onClick={() => setCurrentTestimonial(index)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="featured-products">
+        <h2>Productos destacados</h2>
+        <div className="products-grid">
+          {featuredProducts.map((product) => (
+            <div key={product.id} className="product-card">
+              <div className="product-image-wrapper">
+                <img src={product.image} alt={product.name} />
+                <div className="product-overlay">
+                  <button className="quick-add" onClick={addToCart}>
+                    <FontAwesomeIcon icon={faShoppingCart} /> Añadir
+                  </button>
+                  <button className="quick-view">
+                    <FontAwesomeIcon icon={faHeart} />
+                  </button>
+                </div>
+              </div>
+              <h3>{product.name}</h3>
+              <p className="product-price">{product.price}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="cta-section">
+        <div className="cta-content">
+          <h2>¿Necesitas ayuda para elegir?</h2>
+          <p>Nuestros especialistas están disponibles para asesorarte sobre el modelo que mejor se adapte a tus necesidades.</p>
+          <button className="btn-contacto">Agendar consulta gratuita</button>
+        </div>
+      </div>
+
+      <footer className="footer">
+        <div className="footer-top">
+          <div className="footer-col">
+            <h3>HelpyCare</h3>
+            <p>Mejorando la calidad de vida con tecnología avanzada para la audición.</p>
+            <div className="social-links">
+              <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+              <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+              <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
+            </div>
+          </div>
+          
+          <div className="footer-col">
+            <h3>Enlaces rápidos</h3>
+            <ul>
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/productos">Productos</a></li>
+              <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+              <li><a href="/contacto">Contacto</a></li>
+            </ul>
+          </div>
+          
+          <div className="footer-col">
+            <h3>Contacto</h3>
+            <p><FontAwesomeIcon icon={faPhone} /> +34 91 234 5678</p>
+            <p><FontAwesomeIcon icon={faEnvelope} /> info@helpycare.com</p>
+          </div>
+          
+          <div className="footer-col">
+            <h3>Suscríbete</h3>
+            <p>Recibe nuestras novedades y ofertas exclusivas</p>
+            <form className="subscribe-form">
+              <input type="email" placeholder="Tu correo electrónico" />
+              <button type="submit">Suscribirse</button>
+            </form>
+          </div>
+        </div>
+        
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} HelpyCare. Todos los derechos reservados.</p>
+          <div className="footer-links">
+            <a href="/privacidad">Política de Privacidad</a>
+            <a href="/terminos">Términos y Condiciones</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
