@@ -1,9 +1,11 @@
 /* Estilos base de la aplicación */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: left; /* Cambiado a left para mejor legibilidad en textos largos */
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left; /* Mejor legibilidad en textos largos */
+  box-sizing: border-box;
 }
 
 /* Mantener los estilos originales del logo */
@@ -109,8 +111,8 @@
   .terminos-container {
     padding: 10px;
   }
-  
+
   #root {
-    padding: 0.5rem;
+    padding: 0; /* También quitamos padding en móviles */
   }
 }
