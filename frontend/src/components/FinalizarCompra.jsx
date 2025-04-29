@@ -58,7 +58,7 @@ const FinalizarCompra = () => {
       {/* Header */}
       <header className="header">
         <div className="logo">
-          <img src="/assets/logo.png" alt="helpycare" />
+        <img src="/src/assets/logo.png" alt="HelpyCare Logo" className="logo-img" />
           <span></span>
         </div>
         

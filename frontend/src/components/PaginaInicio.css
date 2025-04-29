@@ -10,7 +10,7 @@
 /* Announcement Bar */
 .announcement-bar {
   background-color: #7749F8;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   padding: 8px 0;
   font-size: 14px;
@@ -84,7 +84,7 @@
 
 .nav-menu a {
   text-decoration: none;
-  color: #555;
+  color: #2e8bc0;
   font-size: 15px;
   font-weight: 500;
   position: relative;
@@ -96,7 +96,7 @@
 }
 
 .nav-menu a.active {
-  color: #ffffff;
+  color: #000000;
 }
 
 .nav-menu a.active::after {
