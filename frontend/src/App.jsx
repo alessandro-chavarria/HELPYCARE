@@ -12,20 +12,11 @@ import FinalizarCompra from './components/FinalizarCompra';
 import TerminosYCondiciones from './components/TerminosYCondiciones';
 import VentasEmpleado from './components/VentasEmpleado';
 import RegistroEmpleado from './components/RegistroEmpleado';
-import PaginaInicio from './components/PaginaInicio';
 import RegistroCliente from './components/RegistroCliente';
 
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
- return (
-    <div>
-      <RegistroCliente />
-    </div>
-  );
-return (
-  <VentasEmpleado />
-);
 function App() {
   const [count, setCount] = useState(0);
   
