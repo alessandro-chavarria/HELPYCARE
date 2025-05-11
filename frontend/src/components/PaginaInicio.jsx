@@ -4,12 +4,17 @@ import audifono from '../assets/audifono1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBars, faEnvelope, faPhone, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import RegistroCliente from './components/RegistroCliente';
 
 function PaginaInicio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
-  
+  return (
+    <div>
+      <RegistroCliente />
+    </div>
+  );
   const featuredProducts = [
     { id: 1, name: "Audífono Digital Premium", price: "$299.99", image: audifono },
     { id: 2, name: "Audífono Mini Discreto", price: "$249.99", image: audifono },

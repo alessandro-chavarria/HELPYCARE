@@ -1,0 +1,131 @@
+.registro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #3498db;
+    padding: 20px;
+  }
+  
+  .registro-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .logo-container {
+    margin-bottom: 15px;
+  }
+  
+  .logo {
+    display: inline-flex;
+    position: relative;
+  }
+  
+  .house-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #2ecc71;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    position: relative;
+  }
+  
+  .house-icon:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background-color: #2ecc71;
+  }
+  
+  .heart-icon {
+    position: absolute;
+    right: -15px;
+    top: -5px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-color: #9b59b6;
+    transform: rotate(45deg);
+  }
+  
+  .heart-icon:before,
+  .heart-icon:after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #9b59b6;
+    border-radius: 50%;
+  }
+  
+  .heart-icon:before {
+    left: -12.5px;
+  }
+  
+  .heart-icon:after {
+    top: -12.5px;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 500;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    background-color: #f8f9fa;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #495057;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  input::placeholder, select {
+    color: #adb5bd;
+  }
+  
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3cpath fill='none' d='M0 0h24v24H0z'/%3e%3cpath d='M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z' fill='%23adb5bd'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+  }
+  
+  .btn-crear {
+    width: 100%;
+    padding: 12px;
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  
+  .btn-crear:hover {
+    background-color: #8e44ad;
+  }
+  
+  input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(155, 89, 182, 0.25);
+  }
