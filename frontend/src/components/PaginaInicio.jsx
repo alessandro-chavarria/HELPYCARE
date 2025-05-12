@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './PaginaInicio.css';
 import audifono from '../assets/audifono1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -56,9 +57,10 @@ function PaginaInicio() {
         
         <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
-            <li><a href="/" className="active">Inicio</a></li>
-            <li><a href="/productos"  className="active">Productos</a></li>
-            <li><a href="/sobre-nosotros"  className="active">Sobre Nosotros</a></li>
+            <li><Link to="/" className="active">Inicio</Link></li>
+            <li><Link to="/productos" className="active">Productos</Link></li>
+            <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
+            <li><Link to="/ventas-empleado" className="active">Ventas</Link></li>
           </ul>
         </nav>
        
@@ -155,9 +157,10 @@ function PaginaInicio() {
           <div className="footer-col">
             <h3>Enlaces rápidos</h3>
             <ul>
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/productos">Productos</a></li>
-              <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+              <li><Link to="/">Inicio</Link></li>
+              <li><Link to="/productos">Productos</Link></li>
+              <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
+              <li><Link to="/ventas-empleado">Ventas</Link></li>
             </ul>
           </div>
           
@@ -174,8 +177,8 @@ function PaginaInicio() {
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} HelpyCare. Todos los derechos reservados.</p>
           <div className="footer-links">
-            <a href="/privacidad">Política de Privacidad</a>
-            <a href="/terminos">Términos y Condiciones</a>
+            <Link to="/privacidad">Política de Privacidad</Link>
+            <Link to="/terminos">Términos y Condiciones</Link>
           </div>
         </div>
       </footer>
