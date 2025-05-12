@@ -13,6 +13,8 @@ import TerminosYCondiciones from './components/TerminosYCondiciones';
 import VentasEmpleado from './components/VentasEmpleado';
 import RegistroEmpleado from './components/RegistroEmpleado';
 import RegistroCliente from './components/RegistroCliente';
+import AgregarProductos from './components/AgregarProductos';
+import AgregarMarcas from './components/AgregarMarcas';
 
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
