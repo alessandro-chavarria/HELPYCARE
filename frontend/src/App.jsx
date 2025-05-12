@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Import components
 // Import only components that exist
@@ -54,14 +54,20 @@ function App() {
   );
 
   return (
-    <Router>
+    <BrowserRouter>
       <div className="app-container">
         <Routes>
-          {/* Páginas principales */}
-          <Route path="/" element={<PaginaInicio />} />
-          <Route path="/bienvenida" element={<BienvenidaPage />} />
+          {/* La página de inicio de sesión será la primera al cargar */}
+          <Route path="/" element={<InicioSesion />} />
+          
+          {/* Rutas de autenticación */}
+          <Route path="/iniciosesion" element={<InicioSesion />} />
           <Route path="/login" element={<InicioSesion />} />
           <Route path="/recovery" element={<RecuperacionContra />} />
+          
+          {/* Páginas principales */}
+          <Route path="/inicio" element={<PaginaInicio />} />
+          <Route path="/bienvenida" element={<BienvenidaPage />} />
           
           {/* Productos */}
           <Route path="/producto/:id" element={<PaginaDetalleProducto />} />
@@ -85,7 +91,7 @@ function App() {
           <Route path="/vite-example" element={<ViteExample />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
