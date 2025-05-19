@@ -1,10 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Importar useNavigate
 import ninoCometa from "../assets/nino-cometa.png";
 import "./InicioSesion.css"; // Importamos el archivo CSS
 
 export default function InicioSesion() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Hook para navegación
+
+  // Función para manejar el envío del formulario
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+    
+    // Aquí normalmente validarías las credenciales
+    // Por ahora simplemente navegamos a la página de inicio
+    navigate("/inicio");
+  };
 
   return (
     <div className="login-container">
@@ -16,7 +27,7 @@ export default function InicioSesion() {
             <p>Ingrese sus credenciales</p>
           </div>
 
-          <div className="form-fields">
+          <form onSubmit={handleSubmit} className="form-fields">
             {/* Campo de usuario */}
             <div className="input-group">
               <div className="input-icon">
@@ -49,7 +60,7 @@ export default function InicioSesion() {
 
             {/* Enlace de olvidó contraseña */}
             <div className="forgot-password">
-              <a href="#">¿Olvidó su contraseña?</a>
+              <a href="/recovery">¿Olvidó su contraseña?</a>
             </div>
 
             {/* Botón de inicio de sesión */}
@@ -59,9 +70,9 @@ export default function InicioSesion() {
 
             {/* Nota de registro */}
             <div className="register-note">
-              No puede crear una cuenta. Regístrese con un administrador.
+              "Recuerda registrarte como empleado, sino eres un cliente"
             </div>
-          </div>
+          </form>
         </div>
       </div>
 
