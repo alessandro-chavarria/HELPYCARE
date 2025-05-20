@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './PaginaInicio.css';
 import audifono from '../assets/audifono1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,7 @@ function PaginaInicio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  const location = useLocation(); // Obtener la ubicación actual
  
   const featuredProducts = [
     { id: 1, name: "Audífono Digital Premium", price: "$299.99", image: audifono },
@@ -39,6 +40,13 @@ function PaginaInicio() {
   const addToCart = () => {
     setCartCount(cartCount + 1);
   };
+  // Función para manejar la navegación al inicio
+  const handleHomeClick = (e) => {
+    //  (pathname es "/"), prevenimos la navegación
+    if (location.pathname === "/") {
+      e.preventDefault();
+    }
+  };
 
   return (
     <div className="pagina-inicio-container">
@@ -57,7 +65,7 @@ function PaginaInicio() {
         
         <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
-            <li><Link to="/" className="active">Inicio</Link></li>
+            <li><Link to="/inicio" className="active" onClick={handleHomeClick}>Inicio</Link></li>
             <li><Link to="/productos" className="active">Productos</Link></li>
             <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
             <li><Link to="/ventas-empleado" className="active">Ventas</Link></li>
@@ -157,7 +165,7 @@ function PaginaInicio() {
           <div className="footer-col">
             <h3>Enlaces rápidos</h3>
             <ul>
-              <li><Link to="/">Inicio</Link></li>
+              <li><Link to="/" onClick={handleHomeClick}>Inicio</Link></li>
               <li><Link to="/productos">Productos</Link></li>
               <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
               <li><Link to="/ventas-empleado">Ventas</Link></li>
@@ -166,7 +174,7 @@ function PaginaInicio() {
           
           <div className="footer-col">
             <h3>Contacto</h3>
-            <p><FontAwesomeIcon icon={faPhone} /> +34 91 234 5678</p>
+            <p><FontAwesomeIcon icon={faPhone} /> +503 7698-9070</p>
             <p><FontAwesomeIcon icon={faEnvelope} /> info@helpycare.com</p>
           </div>
           
