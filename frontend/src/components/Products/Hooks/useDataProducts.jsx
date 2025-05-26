@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useDataProducts = () => {
-  const API = "http://localhost:4000/api/product"; // Ajusta la URL según tu backend
+  const API = "http://localhost:4000/api/product"; 
 
   const [id, setId] = useState("");
   const [name, setName] = useState("");
