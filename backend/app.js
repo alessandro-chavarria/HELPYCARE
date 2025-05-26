@@ -8,6 +8,7 @@ import shoppingCartRoutes from "./src/routes/shoppingCart.js";
 import saleRoutes from "./src/routes/sale.js";
 import loginRoutes from "./src/routes/login.js";
 import registerEmployeeRoutes from "./src/routes/registerEmployee.js";
+import registerClientRoutes from "./src/routes/registerClient.js";
 
 const app = express();
 app.use (express.json());
@@ -23,5 +24,6 @@ app.use("/api/sale", saleRoutes);
 app.use("/api/login", loginRoutes);
 
 app.use("/api/registerEmployee", registerEmployeeRoutes);
+app.use("/api/registerClient", registerClientRoutes);
 
 export default App;
