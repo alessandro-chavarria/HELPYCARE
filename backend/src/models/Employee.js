@@ -43,7 +43,7 @@ const employeeSchema = new Schema({
         type: String,
         require: true,
         minLength: 6
-    }
+    },
 }, {
     timestamps: true,
     strict: false
