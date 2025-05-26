@@ -5,8 +5,7 @@
 Puedes obtener el proyecto de dos maneras: 
 
 1. **Clonar el repositorio con Git**: Abre tu terminal y ejecuta el siguiente comando para clonar el repositorio:
-   ```bash
-https://github.com/alessandro-chavarria/HELPYCARE.git
+   ```bash https://github.com/alessandro-chavarria/HELPYCARE.git
 Descargar como archivo ZIP: En la página del repositorio en GitHub, haz clic en el botón Code y selecciona Download ZIP. Luego descomprime el archivo en la ubicación deseada.
 Una vez que hayas descargado o clonado el proyecto, sigue estos pasos para ejecutarlo:
 
