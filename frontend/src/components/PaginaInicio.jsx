@@ -69,6 +69,29 @@ function PaginaInicio() {
             <li><Link to="/productos" className="active">Productos</Link></li>
             <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
             <li><Link to="/ventas-empleado" className="active">Ventas</Link></li>
+            <li>
+  <button
+    style={{
+      backgroundColor: "#007BFF",
+      color: "white",
+      border: "none",
+      padding: "8px 16px",
+      borderRadius: "4px",
+      cursor: "pointer",
+    }}
+    onMouseEnter={(e) => {
+      e.target.style.backgroundColor = "#0056b3"; // Azul más oscuro al hacer hover
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.backgroundColor = " #2e8bc0"; // Azul original cuando el mouse sale
+    }}
+  >
+    <Link to="/login" className="active" style={{ color: "white", textDecoration: "none" }}>
+      Login
+    </Link>
+  </button>
+</li>
+
           </ul>
         </nav>
        

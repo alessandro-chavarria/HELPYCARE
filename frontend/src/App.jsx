@@ -1,94 +1,73 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Import components
-// Import only components that exist
-// If a component doesn't exist yet, comment out its import
+// Import componentes existentes
 import BienvenidaPage from './components/BienvenidaPage';
 import InicioSesion from './components/InicioSesion';
 import RecuperacionContra from './components/RecuperacionContra';
 import PaginaDetalleProducto from './components/PaginaDetalleProducto';
 import PaginaInicio from './components/PaginaInicio';
-import PaginaProductos from './components/PaginaProductos';
 import SobreNosotros from './components/SobreNosotros';
 import FinalizarCompra from './components/FinalizarCompra';
 import TerminosYCondiciones from './components/TerminosYCondiciones';
 import VentasEmpleado from './components/VentasEmpleado';
-// import RegistroEmpleado from './components/RegistroEmpleado';
-// import RegistroCliente from './components/RegistroCliente';
-// import AgregarProductos from './components/AgregarProductos';
-// import AgregarMarcas from './components/AgregarMarcas';
 
-// Import logos and styles
+// Importa AgregarProductos que tienes en /components/products
+import AgregarProductos from './components/AgregarProducto.jsx';
+
+// Import logos y estilos
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-  
-  // Vite example component
-  const ViteExample = () => (
-    <div className="vite-example-container">
-      <div className="logos-container">
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  );
-
   return (
     <BrowserRouter>
       <div className="app-container">
         <Routes>
-          {/* La página de inicio de sesión será la primera al cargar */}
-          <Route path="/" element={<InicioSesion />} />
-          
-          {/* Rutas de autenticación */}
+          {/* Página principal y autenticación */}
+          <Route path="/" element={<PaginaInicio />} />
           <Route path="/iniciosesion" element={<InicioSesion />} />
           <Route path="/login" element={<InicioSesion />} />
           <Route path="/recovery" element={<RecuperacionContra />} />
-          
+
           {/* Páginas principales */}
           <Route path="/inicio" element={<PaginaInicio />} />
           <Route path="/bienvenida" element={<BienvenidaPage />} />
           
-          {/* Productos */}
+          {/* Producto detalle */}
           <Route path="/producto/:id" element={<PaginaDetalleProducto />} />
-          <Route path="/productos" element={<PaginaProductos />} />
           
-          {/* Comentado hasta que existan estos componentes */}
-          {/* <Route path="/agregar-productos" element={<AgregarProductos />} /> */}
-          {/* <Route path="/agregar-marcas" element={<AgregarMarcas />} /> */}
-          
+          {/* Ruta para agregar productos */}
+          <Route path="/agregar-producto" element={<AgregarProductos />} />
+
+          {/* Ruta productos (puedes usar otra página para listar o gestionar) */}
+          {/* <Route path="/productos" element={<PaginaProductos />} /> */}
+
           {/* Otros */}
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
           <Route path="/finalizar-compra" element={<FinalizarCompra />} />
           <Route path="/terminos" element={<TerminosYCondiciones />} />
-          
-          {/* Comentado hasta que existan estos componentes */}
           <Route path="/ventas-empleado" element={<VentasEmpleado />} />
-          {/* <Route path="/registro-empleado" element={<RegistroEmpleado />} /> */}
-          {/* <Route path="/registro-cliente" element={<RegistroCliente />} /> */}
           
-          {/* Ejemplo de Vite */}
-          <Route path="/vite-example" element={<ViteExample />} />
+          {/* Ejemplo Vite */}
+          <Route path="/vite-example" element={
+            <div className="vite-example-container">
+              <div className="logos-container">
+                <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+                  <img src={viteLogo} className="logo" alt="Vite logo" />
+                </a>
+                <a href="https://react.dev" target="_blank" rel="noreferrer">
+                  <img src={reactLogo} className="logo react" alt="React logo" />
+                </a>
+              </div>
+              <h1>Vite + React</h1>
+              <div className="card">
+                <button onClick={() => alert('Ejemplo de Vite')}>¡Hola!</button>
+                <p>Edita <code>src/App.jsx</code> y guarda para probar HMR</p>
+              </div>
+            </div>
+          } />
         </Routes>
       </div>
     </BrowserRouter>

@@ -10,8 +10,17 @@ import loginRoutes from "./src/routes/login.js";
 import registerEmployeeRoutes from "./src/routes/registerEmployee.js";
 import registerClientRoutes from "./src/routes/registerClient.js";
 import logoutRoutes from "./src/routes/logout.js";
+import cors from "cors";
 
 const app = express();
+
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true //Allows the cookies and credential
+    })
+)
+
 app.use (express.json());
 
 app.use("/api/brand", brandRoutes);
@@ -28,4 +37,4 @@ app.use("/api/logout", logoutRoutes);
 app.use("/api/registerEmployee", registerEmployeeRoutes);
 app.use("/api/registerClient", registerClientRoutes);
 
-export default App;
+export default app;
