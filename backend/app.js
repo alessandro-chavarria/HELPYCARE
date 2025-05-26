@@ -9,6 +9,7 @@ import saleRoutes from "./src/routes/sale.js";
 import loginRoutes from "./src/routes/login.js";
 import registerEmployeeRoutes from "./src/routes/registerEmployee.js";
 import registerClientRoutes from "./src/routes/registerClient.js";
+import logoutRoutes from "./src/routes/logout.js";
 
 const app = express();
 app.use (express.json());
@@ -22,6 +23,7 @@ app.use("/api/shoppingCart", shoppingCartRoutes);
 app.use("/api/sale", saleRoutes);
 
 app.use("/api/login", loginRoutes);
+app.use("/api/logout", logoutRoutes);
 
 app.use("/api/registerEmployee", registerEmployeeRoutes);
 app.use("/api/registerClient", registerClientRoutes);
