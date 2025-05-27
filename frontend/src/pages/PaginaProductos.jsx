@@ -149,6 +149,7 @@ const PaginaProductos = () => {
             <li><Link to="/" className="active">Inicio</Link></li>
             <li><Link to="/productos" className="active">Productos</Link></li>
             <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
+            <li><Link to="/ventas-empleado" className="active">Ventas</Link></li>
           </ul>
         </nav>
         

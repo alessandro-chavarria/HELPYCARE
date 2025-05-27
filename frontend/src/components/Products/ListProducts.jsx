@@ -1,6 +1,7 @@
 // ListProducts.jsx
 import React from "react";
 import CardProduct from "./CardProduct";
+import "./ProductForm.css"
 
 const ListProducts = ({ products, loading, deleteProduct, setProductToEdit }) => {
   if (loading) return <p>Cargando productos...</p>;

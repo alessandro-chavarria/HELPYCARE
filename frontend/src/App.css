@@ -100,7 +100,7 @@
 }
 
 .nav-principal a {
-  color: white;
+  color: white !important;
   text-decoration: none;
   margin: 0 15px;
   font-weight: 500;

@@ -96,7 +96,7 @@
 }
 
 .nav-menu a.active {
-  color: #000000;
+  color: #ffffff !important;
 }
 
 .nav-menu a.active::after {

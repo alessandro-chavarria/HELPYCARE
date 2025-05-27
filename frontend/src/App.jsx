@@ -2,18 +2,19 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Import componentes existentes
-import BienvenidaPage from './components/BienvenidaPage';
-import InicioSesion from './components/InicioSesion';
-import RecuperacionContra from './components/RecuperacionContra';
-import PaginaDetalleProducto from './components/PaginaDetalleProducto';
-import PaginaInicio from './components/PaginaInicio';
-import SobreNosotros from './components/SobreNosotros';
-import FinalizarCompra from './components/FinalizarCompra';
+import BienvenidaPage from './pages/BienvenidaPage';
+import InicioSesion from './pages/InicioSesion';
+import RecuperacionContra from './pages/RecuperacionContra';
+import PaginaDetalleProducto from './pages/PaginaDetalleProducto';
+import PaginaInicio from './pages/PaginaInicio';
+import SobreNosotros from './pages/SobreNosotros';
+import FinalizarCompra from './components/FinalizarCompra.jsx';
 import TerminosYCondiciones from './components/TerminosYCondiciones';
-import VentasEmpleado from './components/VentasEmpleado';
+import VentasEmpleado from './pages/VentasEmpleado';
 
-// Importa AgregarProductos que tienes en /components/products
+// Importa AgregarProductos que tienes en /pages/products
 import AgregarProductos from './components/AgregarProducto.jsx';
+import PaginaProductos from './pages/PaginaProductos.jsx';
 
 // Import logos y estilos
 import reactLogo from './assets/react.svg';
@@ -42,7 +43,8 @@ function App() {
           <Route path="/agregar-producto" element={<AgregarProductos />} />
 
           {/* Ruta productos (puedes usar otra página para listar o gestionar) */}
-          {/* <Route path="/productos" element={<PaginaProductos />} /> */}
+
+          { <Route path="/productos" element={<PaginaProductos />}/> }
 
           {/* Otros */}
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
