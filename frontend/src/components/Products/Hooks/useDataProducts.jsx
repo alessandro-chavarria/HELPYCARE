@@ -8,7 +8,6 @@ const useDataProducts = () => {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [stock, setStock] = useState(0);
-  const [idBrand, setIdBrand] = useState("");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,8 +32,7 @@ const useDataProducts = () => {
       !data.name?.trim() ||
       data.price <= 0 ||
       !data.description?.trim() ||
-      data.stock < 0 ||
-      !data.idBrand
+      data.stock < 0
     ) {
       console.warn("Datos incompletos");
       return;
@@ -51,7 +49,6 @@ const useDataProducts = () => {
           price: data.price,
           description: data.description,
           stock: data.stock,
-          idBrand: data.idBrand,
         }),
       });
 
@@ -66,7 +63,6 @@ const useDataProducts = () => {
       setPrice(0);
       setDescription("");
       setStock(0);
-      setIdBrand("");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -96,8 +92,7 @@ const useDataProducts = () => {
       !updatedData.name?.trim() ||
       updatedData.price <= 0 ||
       !updatedData.description?.trim() ||
-      updatedData.stock < 0 ||
-      !updatedData.idBrand
+      updatedData.stock < 0
     ) {
       console.warn("Datos incompletos");
       return;
@@ -114,7 +109,6 @@ const useDataProducts = () => {
           price: updatedData.price,
           description: updatedData.description,
           stock: updatedData.stock,
-          idBrand: updatedData.idBrand,
         }),
       });
 
@@ -139,7 +133,6 @@ const useDataProducts = () => {
     price, setPrice,
     description, setDescription,
     stock, setStock,
-    idBrand, setIdBrand,
     products,
     loading,
     fetchProducts,

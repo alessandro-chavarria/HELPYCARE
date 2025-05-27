@@ -33,7 +33,7 @@ const productSchema = new Schema({
     idBrand: {
         type: Schema.Types.ObjectId,
         ref: "brand",
-        require: true
+        require: false
     }
 }, {
     timestamps: true,

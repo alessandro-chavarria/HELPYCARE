@@ -1,5 +1,7 @@
 // CardProduct.jsx
+import useDataProducts from "../Products/Hooks/useDataProducts"
 
+const {updateProduct} = useDataProducts();
 const CardProduct = ({ product, deleteProduct, setProductToEdit }) => {
   return (
     <div className="product-card">
@@ -8,7 +10,7 @@ const CardProduct = ({ product, deleteProduct, setProductToEdit }) => {
       <p>Precio: ${product.price}</p>
       <p>Stock: {product.stock}</p>
 
-      <button onClick={() => setProductToEdit(product)}>Editar</button>
+      <button onClick={() => updateProductToEdit(product)}>Editar</button>
       <button onClick={() => deleteProduct(product._id)}>Eliminar</button>
     </div>
   );
