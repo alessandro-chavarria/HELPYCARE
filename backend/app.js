@@ -11,6 +11,10 @@ import registerEmployeeRoutes from "./src/routes/registerEmployee.js";
 import registerClientRoutes from "./src/routes/registerClient.js";
 import logoutRoutes from "./src/routes/logout.js";
 import cors from "cors";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import InicioSesion from './components/InicioSesion';
+import RegistroCliente from './components/RegistroCliente';
+
 
 const app = express();
 
@@ -20,7 +24,17 @@ app.use(
         credentials: true 
     })
 )
-
+function App() {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/inicio-sesion" element={<InicioSesion />} />
+          <Route path="/registro-cliente" element={<RegistroCliente />} />
+          {/* Otras rutas */}
+        </Routes>
+      </Router>
+    );
+  }
 app.use (express.json());
 
 app.use("/api/brand", brandRoutes);
@@ -31,7 +45,7 @@ app.use("/api/product", productRoutes);
 app.use("/api/shoppingCart", shoppingCartRoutes);
 app.use("/api/sale", saleRoutes);
 
-app.use("/api/login", loginRoutes);
+app.use("/api/login", loginRoutes);s
 app.use("/api/logout", logoutRoutes);
 
 app.use("/api/registerEmployee", registerEmployeeRoutes);

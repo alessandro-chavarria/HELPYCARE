@@ -16,32 +16,38 @@
   justify-content: center;
 }
 
-@media (min-width: 80px) {
+@media (min-width: 768px) {
   .form-container {
-    width: 40%;
+    width: 50%;
   }
 }
 
-/* Estilos del formulario */
+/* Estilos del formulario con bordes redondeados */
 .login-form {
   width: 100%;
   max-width: 400px;
   background-color: white;
   padding: 2rem;
+  border-radius: 20px; /* Agregado border-radius */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+  margin: 1rem;
 }
 
 .form-title {
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .form-title h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #1f2937;
+  margin-bottom: 0.5rem;
 }
 
 .form-title p {
   color: #4b5563;
+  font-size: 1rem;
 }
 
 .form-fields {
@@ -62,14 +68,74 @@
   transform: translateY(-50%);
   color: #9ca3af;
   pointer-events: none;
+  z-index: 1;
 }
 
 .input-field {
   width: 100%;
-  padding: 0.625rem;
+  padding: 0.875rem;
   padding-left: 2.5rem;
-  border: 1px solid #d1d5db;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
   color: #1f2937;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-field.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Mensajes de error */
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.general-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Enlace de registro */
+.register-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.register-button {
+  background: none;
+  border: none;
+  color: #9333ea;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.register-button:hover {
+  color: #7e22ce;
 }
 
 /* Enlace de olvidó contraseña */
@@ -81,27 +147,63 @@
 .forgot-password a {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #9333ea; /* Color morado para el enlace */
+  color: #9333ea;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .forgot-password a:hover {
   text-decoration: underline;
+  color: #7e22ce;
 }
 
 /* Botón de ingreso */
 .login-button {
   width: 100%;
-  background-color: #9333ea; /* Color morado para el botón */
+  background-color: #9333ea;
   color: white;
-  font-weight: 500;
-  padding: 0.625rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.875rem 1.25rem;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 0.5rem;
 }
 
-.login-button:hover {
+.login-button:hover:not(:disabled) {
   background-color: #7e22ce;
+  transform: translateY(-1px);
+}
+
+.login-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-button.loading {
+  position: relative;
+}
+
+.login-button.loading::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
 }
 
 /* Nota de registro */
@@ -110,6 +212,7 @@
   text-align: center;
   font-size: 0.875rem;
   color: #6b7280;
+  font-style: italic;
 }
 
 /* Contenedor de la imagen */
@@ -117,24 +220,67 @@
   display: none;
 }
 
-@media (min-width: 80px) {
+@media (min-width: 768px) {
   .image-container {
     display: flex;
-    width: 40%;
+    width: 50%;
     align-items: center;
     justify-content: center;
   }
 }
 
-/* Estilos para la imagen */
+/* Estilos para la imagen - CORREGIDO PARA QUE SEA MÁS GRANDE Y SIN REDONDEO */
 .image-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Eliminado el fondo circular */
+.image-bg {
+  display: none; /* Ocultamos el fondo circular */
+}
 
+/* Imagen más grande y sin redondeo */
 .image {
-  width: 876px;
-  height: 876px;
+  width: 500px; /* Aumentado el tamaño */
+  height: 500px; /* Aumentado el tamaño */
   position: relative;
   z-index: 10;
+  object-fit: contain;
+  /* Sin border-radius para que no sea redonda */
+}
+
+/* Responsive design */
+@media (max-width: 767px) {
+  .login-form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .form-title h1 {
+    font-size: 1.5rem;
+  }
+  
+  .image {
+    width: 350px; /* Más grande en móvil también */
+    height: 350px;
+  }
+}
+
+/* Animaciones sutiles */
+.login-form {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
