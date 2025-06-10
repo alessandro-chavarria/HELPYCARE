@@ -1,7 +1,7 @@
 import employeeModels from "../models/Employee.js";
 import bcryptjs from "bcryptjs";
 import jsonwebtoken from "jsonwebtoken";
-import { config } from "../config.js";
+import { config } from "../../config.js";
 import Employee from "../models/Employee.js";
 
 const registerEmployeeControllers = {};

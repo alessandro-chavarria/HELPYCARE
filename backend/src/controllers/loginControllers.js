@@ -2,7 +2,7 @@ import clientModels from "../models/Client.js";
 import employeeModels from "../models/Employee.js";
 import bcryptjs from "bcryptjs";
 import jsonwebtoken from "jsonwebtoken";
-import {config} from "../config.js";
+import {config} from "../../config.js";
 
 const loginControllers = {};
 

@@ -1,22 +1,30 @@
 import mongoose from "mongoose";
+import { config } from "./config.js";
 
-//importo las variables desde mi archivo config.js
-import { config } from "./src/config.js";
+const { URI } = config.db;
 
-//Conectar la base de datos 
-mongoose.connect(config.db.URI);
+// Conexión con manejo de errores
+try {
+  await mongoose.connect(URI);
+  console.log("MongoDB connected:", URI);
+} catch (error) {
+  console.error("MongoDB connection error:", error);
+  process.exit(1);
+}
 
-// ---------------- comprobacion que la base sirve 
 const connection = mongoose.connection;
 
 connection.once("open", () => {
-    console.log("DB is connected");
+  console.log("DB is connected");
 });
 
 connection.on("disconnected", () => {
-    console.log("DB is disconnected");
+  console.log("DB is disconnected");
 });
 
 connection.on("error", (error) => {
-    console.log("Error found" + error);
+  console.error("DB error:", error);
 });
+
+// Exportar la conexión para reutilizarla
+export default connection;
