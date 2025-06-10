@@ -11,6 +11,7 @@ import SobreNosotros from './pages/SobreNosotros';
 import FinalizarCompra from './components/FinalizarCompra.jsx';
 import TerminosYCondiciones from './components/TerminosYCondiciones';
 import VentasEmpleado from './pages/VentasEmpleado';
+import RegistroCliente from './pages/RegistroCliente'; // Asegúrate de que la ruta es correcta
 
 // Importa AgregarProductos que tienes en /pages/products
 import AgregarProductos from './components/AgregarProducto.jsx';
@@ -31,6 +32,7 @@ function App() {
           <Route path="/iniciosesion" element={<InicioSesion />} />
           <Route path="/login" element={<InicioSesion />} />
           <Route path="/recovery" element={<RecuperacionContra />} />
+          <Route path="/registro-cliente" element={<RegistroCliente />} /> {/* Ruta añadida */}
 
           {/* Páginas principales */}
           <Route path="/inicio" element={<PaginaInicio />} />
@@ -42,9 +44,8 @@ function App() {
           {/* Ruta para agregar productos */}
           <Route path="/agregar-producto" element={<AgregarProductos />} />
 
-          {/* Ruta productos (puedes usar otra página para listar o gestionar) */}
-
-          { <Route path="/productos" element={<PaginaProductos />}/> }
+          {/* Ruta productos */}
+          <Route path="/productos" element={<PaginaProductos />} />
 
           {/* Otros */}
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
