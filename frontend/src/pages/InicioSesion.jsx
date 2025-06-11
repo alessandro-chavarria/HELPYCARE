@@ -120,7 +120,12 @@ export default function InicioSesion() {
             </div>
 
             <button type="submit" className={`login-button ${isLoading ? 'loading' : ''}`} disabled={isLoading}>
-              {isLoading ? 'Ingresando...' : 'Ingresar'}
+              {isLoading ? (
+                <>
+                  Ingresando...
+                  <span className="spinner"></span>
+                </>
+              ) : 'Ingresar'}
             </button>
 
             <div className="register-note">

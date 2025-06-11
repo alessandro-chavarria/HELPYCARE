@@ -2,7 +2,7 @@
   display: flex;
   min-height: 100vh;
   width: 100%;
-  color: #3b82f6;
+  background: #3b82f6;
   font-family: 'Arial', sans-serif;
 }
 
@@ -132,7 +132,7 @@
 .register-button {
   background: none;
   border: none;
-  color: #3b82f6;
+  color: #8b5cf6;
   font-weight: 600;
   cursor: pointer;
   font-size: 0.875rem;
@@ -147,14 +147,14 @@
 
 .forgot-password a {
   font-size: 0.875rem;
-  color: #3b82f6;
+  color: #8b5cf6;
   text-decoration: none;
   font-weight: 500;
 }
 
 .login-button {
   width: 100%;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: #8b5cf6;
   color: white;
   border: none;
   border-radius: 12px;
@@ -164,27 +164,28 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .login-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 35px rgba(139, 92, 246, 0.4);
 }
 
 .login-button.loading {
-  background: linear-gradient(135deg, #93c5fd, #a78bfa);
+  background: #a78bfa;
 }
 
-.login-button.loading::after {
-  content: '';
-  display: inline-block;
+.spinner {
   width: 16px;
   height: 16px;
   border: 2px solid transparent;
   border-top: 2px solid white;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin-left: 8px;
 }
 
 .register-note {
@@ -199,8 +200,8 @@
   display: none;
   width: 50%;
   align-items: center;
-  justify-content: flex-start; /* Cambiado para mover la imagen a la izquierda */
-  padding-left: 50px; /* Añadido para más espacio a la izquierda */
+  justify-content: flex-start;
+  padding-left: 50px;
 }
 
 .image-wrapper {
@@ -214,7 +215,7 @@
   width: 800px;
   height: 800px;
   object-fit: contain;
-  margin-left: -100px; /* Mueve la imagen más a la izquierda */
+  margin-left: -100px;
 }
 
 @media (min-width: 768px) {

@@ -1,139 +1,124 @@
-.bienvenida-background {
-  background-color: #1a202c;
+/* Base Styles */
+.page-container {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding-top: 70px; /* For fixed navbar */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #0078b4 0%, #00a1e0 100%);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
-}
-
-.bienvenida-container {
-  background-color: #4299e1;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  max-width: 900px;
-  height: 500px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-.content-area {
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-  justify-content: space-between;
-  height: 100%;
+  min-height: calc(100vh - 70px); /* Full viewport height minus navbar */
   box-sizing: border-box;
 }
 
-.bienvenida-title {
-  color: white;
-  font-size: 2.5rem;
-  font-weight: bold;
+.hero-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+  font-weight: 700;
+  margin-bottom: 1rem;
   line-height: 1.2;
-  margin: 0;
-  padding-top: 30px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.app-name {
-  font-size: 3rem;
-  display: block;
-  margin-top: 5px;
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 250px;
-  margin-bottom: 30px;
+.hero-description {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
 }
 
-.action-button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
+.hero-cta {
+  margin-top: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: white;
+  color: #0078b4;
+  padding: 0.8rem 2.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
 }
 
-.primary-button {
-  background-color: #9c27b0;
-  color: white;
-}
-
-.primary-button:hover {
-  background-color: #7b1fa2;
+.cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.secondary-button {
-  background-color: #4cd3c2;
-  color: white;
-}
-
-.secondary-button:hover {
-  background-color: #3db9aa;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.characters-container {
-  position: absolute;
-  right: 30px;
-  bottom: 0;
-  height: 80%;
-  display: flex;
-  align-items: flex-end;
-}
-
-.characters {
-  height: 90%;
-  max-height: 400px;
-  object-fit: contain;
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .bienvenida-container {
+  .page-container {
+    padding-top: 60px; /* Adjusted for mobile navbar */
+  }
+
+  .hero-section {
+    padding: 1.5rem 1rem;
+    min-height: auto;
     height: auto;
-    padding-bottom: 250px;
+    padding-bottom: 3rem;
   }
-  
-  .bienvenida-title {
-    font-size: 2rem;
-    text-align: center;
+
+  .hero-content h1 {
+    margin-bottom: 0.8rem;
   }
-  
-  .app-name {
-    font-size: 2.5rem;
+
+  .hero-description {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
   }
-  
-  .buttons-container {
-    margin: 30px auto;
+
+  .cta-button {
+    padding: 0.7rem 2rem;
   }
-  
-  .characters-container {
-    position: absolute;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    height: auto;
-    bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
   }
-  
-  .characters {
-    height: auto;
-    width: 300px;
-    max-width: 100%;
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.8rem;
   }
 }
