@@ -1,11 +1,13 @@
 import React from "react";
+import { Link, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import useDataProducts from "./Products/Hooks/useDataProducts.jsx";
 import ProductForm from "./Products/ProductForm.jsx";
 import ListProducts from "./Products/ListProducts.jsx";
-import { Link, useLocation } from 'react-router-dom';
 import '../pages/PaginaInicio.css';
 
-const ProductsPage = () => {
+const AgregarProducto = () => {
   const {
     products,
     loading,
@@ -16,7 +18,13 @@ const ProductsPage = () => {
     deleteProduct,
   } = useDataProducts();
 
-   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const location = useLocation();
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const handleHomeClick = (e) => {
     if (location.pathname === "/") {
       e.preventDefault();
@@ -25,41 +33,60 @@ const ProductsPage = () => {
 
   return (
     <>
-    <div className="header">
+      <div className="header">
         <div className="logo">
           <img src="/src/assets/logo.png" alt="HelpyCare Logo" className="logo-img" />
           <span className="logo-text"></span>
         </div>
 
-        <nav className="nav-menu">
+        <div className="mobile-menu-button" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
+
+        <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
-            <li><Link to="/" className="active" onClick={handleHomeClick}>Inicio</Link></li>
-            <li><Link to="/productos" className="active">Productos</Link></li>
-            <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
-            <li><Link to="/ventas-empleado" className="active">Ventas</Link></li>
+            <li><Link to="/" onClick={handleHomeClick}>Inicio</Link></li>
+            <li><Link to="/productos">Productos</Link></li>
+            <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
+            <li><Link to="/ventas-empleado">Ventas</Link></li>
+            <li><Link to="/agregar-producto" className="active">Agregar Producto</Link></li>
           </ul>
         </nav>
+
+        <div className="header-right">
+          <Link to="/carrito" className="cart-icon">
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </Link>
+        </div>
       </div>
 
-    <div className="products-page-container">
-      <h1>Administración de Productos</h1>
+      <div className="agregar-producto-container">
+        <h1 className="page-title">Administración de Productos</h1>
 
-      <ProductForm
-        productToEdit={productToEdit}
-        setProductToEdit={setProductToEdit}
-        saveProduct={saveProduct}
-        updateProduct={updateProduct}
-      />
+        <div className="product-management-section">
+          <div className="product-form-container">
+            <h2>Agregar/Editar Producto</h2>
+            <ProductForm
+              productToEdit={productToEdit}
+              setProductToEdit={setProductToEdit}
+              saveProduct={saveProduct}
+              updateProduct={updateProduct}
+            />
+          </div>
 
-      <ListProducts
-        products={products}
-        loading={loading}
-        deleteProduct={deleteProduct}
-        setProductToEdit={setProductToEdit}
-      />
-    </div>
+          <div className="product-list-container">
+            <h2>Listado de Productos</h2>
+            <ListProducts
+              products={products}
+              loading={loading}
+              deleteProduct={deleteProduct}
+              setProductToEdit={setProductToEdit}
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
 
-export default ProductsPage;
+export default AgregarProducto;
