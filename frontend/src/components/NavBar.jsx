@@ -15,8 +15,12 @@ const NavBar = () => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setScrolled(true);
+        document.body.style.paddingTop = '70px';
+        document.querySelector('.navbar-container').style.backgroundColor = 'rgba(46, 139, 192, 0.98)';
       } else {
         setScrolled(false);
+        document.body.style.paddingTop = '0';
+        document.querySelector('.navbar-container').style.backgroundColor = 'rgba(46, 139, 192, 0.9)';
       }
     };
 
@@ -24,7 +28,6 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Cerrar el menú móvil al cambiar de ruta
   useEffect(() => {
     setMenuActive(false);
   }, [location]);
@@ -43,10 +46,9 @@ const NavBar = () => {
           <Link to="/inicio" className="nav-link">Inicio</Link>
           <Link to="/productos" className="nav-link">Productos</Link>
           <Link to="/sobre-nosotros" className="nav-link">Sobre Nosotros</Link>
-          <Link to="/contacto" className="nav-link">Contacto</Link>
+          <Link to="/ventas-empleado" className="nav-link">Ventas</Link>
           <div className="nav-actions">
             <Link to="/login" className="btn-login">Iniciar Sesión</Link>
-            <Link to="/registro" className="btn-register">Registrarse</Link>
           </div>
         </div>
 

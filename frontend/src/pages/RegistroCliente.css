@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background:  #3b82f6;
+  background:  #0078b4;
   padding: 20px;
   font-family: 'Arial', sans-serif;
 }
@@ -27,7 +27,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, #0078b4);
 }
 
 .logo-container {
@@ -88,7 +88,7 @@ h2 {
 
 .input-group:focus-within {
   background-color: white;
-  border-color: #3b82f6;
+  border-color: #0078b4;
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
 }
 
@@ -121,7 +121,7 @@ h2 {
 }
 
 .btn-crear {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #0078b4);
   color: white;
   border: none;
   border-radius: 12px;

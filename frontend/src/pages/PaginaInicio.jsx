@@ -10,12 +10,30 @@ function PaginaInicio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
-  const location = useLocation(); // Obtener la ubicación actual
+  const location = useLocation();
  
   const featuredProducts = [
-    { id: 1, name: "Audífono Digital Premium", price: "$299.99", image: audifono },
-    { id: 2, name: "Audífono Mini Discreto", price: "$249.99", image: audifono },
-    { id: 3, name: "Audífono Recargable Plus", price: "$329.99", image: audifono },
+    { 
+      id: 1, 
+      name: "Audífono Digital Premium", 
+      price: "$299.99", 
+      image: audifono,
+      description: "Tecnología avanzada para una audición clara y natural"
+    },
+    { 
+      id: 2, 
+      name: "Audífono Mini Discreto", 
+      price: "$249.99", 
+      image: audifono,
+      description: "Diseño pequeño y cómodo para uso diario"
+    },
+    { 
+      id: 3, 
+      name: "Audífono Recargable Plus", 
+      price: "$329.99", 
+      image: audifono,
+      description: "Batería recargable de larga duración"
+    },
   ];
 
   const testimonials = [
@@ -40,9 +58,8 @@ function PaginaInicio() {
   const addToCart = () => {
     setCartCount(cartCount + 1);
   };
-  // Función para manejar la navegación al inicio
+
   const handleHomeClick = (e) => {
-    //  (pathname es "/"), prevenimos la navegación
     if (location.pathname === "/") {
       e.preventDefault();
     }
@@ -70,38 +87,36 @@ function PaginaInicio() {
             <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
             <li><Link to="/ventas-empleado" className="active">Ventas</Link></li>
             <li>
-  <button
-    style={{
-      backgroundColor: "#007BFF",
-      color: "white",
-      border: "none",
-      padding: "8px 16px",
-      borderRadius: "4px",
-      cursor: "pointer",
-    }}
-    onMouseEnter={(e) => {
-      e.target.style.backgroundColor = "#0056b3"; // Azul más oscuro al hacer hover
-    }}
-    onMouseLeave={(e) => {
-      e.target.style.backgroundColor = " #2e8bc0"; // Azul original cuando el mouse sale
-    }}
-  >
-    <Link to="/login" className="active" style={{ color: "white", textDecoration: "none" }}>
-      Login
-    </Link>
-  </button>
-</li>
-
+              <button
+                style={{
+                  backgroundColor: "#007BFF",
+                  color: "white",
+                  border: "none",
+                  padding: "8px 16px",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "#0056b3";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "#2e8bc0";
+                }}
+              >
+                <Link to="/login" className="active" style={{ color: "white", textDecoration: "none" }}>
+                  Login
+                </Link>
+              </button>
+            </li>
           </ul>
         </nav>
-       
       </div>
 
       <div className="main-content">
         <div className="left-content">
           <div className="hero-badge">Tecnología Avanzada</div>
           <h1>Esto es HelpyCare</h1>
-          <p className="slogan">"Cuidamos de ti por qué cada año cuenta"</p>
+          <p className="slogan">"Cuidamos de ti porque cada año cuenta"</p>
           <div className="features">
             <div className="feature-item">
               <div className="feature-icon">✓</div>
@@ -116,7 +131,6 @@ function PaginaInicio() {
               <p>Soporte técnico personalizado</p>
             </div>
           </div>
-
         </div>
         
         <div className="right-content">
@@ -167,6 +181,7 @@ function PaginaInicio() {
                 </div>
               </div>
               <h3>{product.name}</h3>
+              <p className="product-description">{product.description}</p>
               <p className="product-price">{product.price}</p>
             </div>
           ))}
@@ -199,9 +214,6 @@ function PaginaInicio() {
             <h3>Contacto</h3>
             <p><FontAwesomeIcon icon={faPhone} /> +503 7698-9070</p>
             <p><FontAwesomeIcon icon={faEnvelope} /> info@helpycare.com</p>
-          </div>
-          
-          <div className="footer-col">
           </div>
         </div>
         
