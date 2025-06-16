@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SobreNosotros.css';
+import parejaAncianos from '/src/assets/pareja-ancianos.png';
 
 const SobreNosotros = () => {
   return (
@@ -14,16 +15,36 @@ const SobreNosotros = () => {
         
         <nav className="nav-menu">
           <ul>
-            <li><Link to="/" className="active">Inicio</Link></li>
-            <li><Link to="/productos" className="active">Productos</Link></li>
+            <li><Link to="/" className="">Inicio</Link></li>
+            <li><Link to="/productos" className="">Productos</Link></li>
             <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
-            <li><Link to="/ventas-empleado" className="active">Ventas</Link></li>
+            <li><Link to="/ventas-empleado" className="">Ventas</Link></li>
+            <li>
+              <button
+                style={{
+                  backgroundColor: "#007BFF",
+                  color: "white",
+                  border: "none",
+                  padding: "8px 16px",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "#0056b3";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "#2e8bc0";
+                }}
+              >
+                <Link to="/login" style={{ color: "white", textDecoration: "none" }}>
+                  Login
+                </Link>
+              </button>
+            </li>
           </ul>
         </nav>
-        
-       
       </header>
-
+ 
       {/* Contenido principal */}
       <div className="sobre-nosotros-main">
         <div className="sobre-nosotros-header">
@@ -115,19 +136,19 @@ const SobreNosotros = () => {
             <div className="equipo-grid">
               <div className="equipo-item">
                 <div className="equipo-img">
-                  <img src="/assets/team/team1.png" alt="" />
+                  <img src="/src/assets/team/team1.png" alt="" />
                 </div>
                 <h3>Enrique Chavarria</h3>
               </div>
               <div className="equipo-item">
                 <div className="equipo-img">
-                  <img src="/assets/team/team2.png" alt="" />
+                  <img src="/src/assets/team/team2.png" alt="" />
                 </div>
                 <h3>Carlos Henriquez</h3>
               </div>
               <div className="equipo-item">
                 <div className="equipo-img">
-                  <img src="/assets/team/team3.png" alt="" />
+                  <img src="/src/assets/team/team3.png" alt="" />
                 </div>
                 <h3>Gabriel Garcia</h3>
               </div>
@@ -145,27 +166,24 @@ const SobreNosotros = () => {
               </p>
             </div>
             <div className="mensaje-img">
-              <img src="/assets/pareja-ancianos.png" alt="Pareja de ancianos" />
+            <img src={parejaAncianos} alt="Pareja de ancianos" />
             </div>
           </div>
 
-      {/* Sección de contacto - centrada como solicitaste */}
-      <div style={{
+          <div style={{
             width: '100%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: '30px'
           }}> 
-      
-              
-              <div className="terminos" style={{marginTop: '15px'}}>
-                <Link to="/terminos" style={{color: '#6698e8', textDecoration: 'none'}}>Términos y Condiciones</Link>
-              </div>
+            <div className="terminos" style={{marginTop: '15px'}}>
+              <Link to="/terminos" style={{color: '#6698e8', textDecoration: 'none'}}>Términos y Condiciones</Link>
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

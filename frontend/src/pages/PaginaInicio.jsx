@@ -9,28 +9,28 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
 function PaginaInicio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
-  const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  const [likedProducts, setLikedProducts] = useState({});
   const location = useLocation();
- 
+
   const featuredProducts = [
-    { 
-      id: 1, 
-      name: "Audífono Digital Premium", 
-      price: "$299.99", 
+    {
+      id: 1,
+      name: "Audífono Digital Premium",
+      price: 299.99,
       image: audifono,
       description: "Tecnología avanzada para una audición clara y natural"
     },
-    { 
-      id: 2, 
-      name: "Audífono Mini Discreto", 
-      price: "$249.99", 
+    {
+      id: 2,
+      name: "Audífono Mini Discreto",
+      price: 249.99,
       image: audifono,
       description: "Diseño pequeño y cómodo para uso diario"
     },
-    { 
-      id: 3, 
-      name: "Audífono Recargable Plus", 
-      price: "$329.99", 
+    {
+      id: 3,
+      name: "Audífono Recargable Plus",
+      price: 329.99,
       image: audifono,
       description: "Batería recargable de larga duración"
     },
@@ -41,13 +41,14 @@ function PaginaInicio() {
     { id: 2, name: "Carlos P.", age: 72, text: "Excelente servicio y productos de calidad. El soporte técnico es increíble." },
     { id: 3, name: "Ana L.", age: 65, text: "Después de probar varias marcas, HelpyCare es sin duda la mejor opción para mí." },
   ];
+
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     const testimonialTimer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
-    
+
     return () => clearInterval(testimonialTimer);
   }, [testimonials.length]);
 
@@ -55,8 +56,20 @@ function PaginaInicio() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const addToCart = () => {
+  const addToCart = (productId) => {
     setCartCount(cartCount + 1);
+    // Guardar en localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const productToAdd = featuredProducts.find(p => p.id === productId);
+    cart.push(productToAdd);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  };
+
+  const toggleLike = (productId) => {
+    setLikedProducts(prev => ({
+      ...prev,
+      [productId]: !prev[productId]
+    }));
   };
 
   const handleHomeClick = (e) => {
@@ -67,25 +80,22 @@ function PaginaInicio() {
 
   return (
     <div className="pagina-inicio-container">
-      <div className="announcement-bar">
-      </div>
-
       <div className="header">
         <div className="logo">
           <img src="/src/assets/logo.png" alt="HelpyCare Logo" className="logo-img" />
           <span className="logo-text"></span>
         </div>
-        
+
         <div className="mobile-menu-button" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} />
         </div>
-        
+
         <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
             <li><Link to="/inicio" className="active" onClick={handleHomeClick}>Inicio</Link></li>
-            <li><Link to="/productos" className="active">Productos</Link></li>
-            <li><Link to="/sobre-nosotros" className="active">Sobre Nosotros</Link></li>
-            <li><Link to="/ventas-empleado" className="active">Ventas</Link></li>
+            <li><Link to="/productos" className="">Productos</Link></li>
+            <li><Link to="/sobre-nosotros" className="">Sobre Nosotros</Link></li>
+            <li><Link to="/ventas-empleado" className="">Ventas</Link></li>
             <li>
               <button
                 style={{
@@ -114,7 +124,7 @@ function PaginaInicio() {
 
       <div className="main-content">
         <div className="left-content">
-          <div className="hero-badge">Tecnología Avanzada</div>
+          <div className="hero-badge">Tecnología  Avanzada</div>
           <h1>Esto es HelpyCare</h1>
           <p className="slogan">"Cuidamos de ti porque cada año cuenta"</p>
           <div className="features">
@@ -132,7 +142,7 @@ function PaginaInicio() {
             </div>
           </div>
         </div>
-        
+
         <div className="right-content">
           <div className="product-image-container">
             <img src={audifono} alt="Audífono HelpyCare" className="product-image bounce-animation" />
@@ -154,8 +164,8 @@ function PaginaInicio() {
           </div>
           <div className="testimonial-dots">
             {testimonials.map((_, index) => (
-              <span 
-                key={index} 
+              <span
+                key={index}
                 className={`dot ${index === currentTestimonial ? 'active' : ''}`}
                 onClick={() => setCurrentTestimonial(index)}
               />
@@ -172,17 +182,23 @@ function PaginaInicio() {
               <div className="product-image-wrapper">
                 <img src={product.image} alt={product.name} />
                 <div className="product-overlay">
-                  <button className="quick-add" onClick={addToCart}>
+                  <button className="quick-add" onClick={() => addToCart(product.id)}>
                     <FontAwesomeIcon icon={faShoppingCart} /> Añadir
                   </button>
-                  <button className="quick-view">
-                    <FontAwesomeIcon icon={faHeart} />
+                  <button 
+                    className={`quick-view ${likedProducts[product.id] ? 'liked' : ''}`} 
+                    onClick={() => toggleLike(product.id)}
+                  >
+                    <FontAwesomeIcon 
+                      icon={faHeart} 
+                      className={likedProducts[product.id] ? 'heart-beat' : ''}
+                    />
                   </button>
                 </div>
               </div>
               <h3>{product.name}</h3>
               <p className="product-description">{product.description}</p>
-              <p className="product-price">{product.price}</p>
+              <p className="product-price">${product.price.toFixed(2)}</p>
             </div>
           ))}
         </div>
@@ -199,24 +215,13 @@ function PaginaInicio() {
               <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
             </div>
           </div>
-          
-          <div className="footer-col">
-            <h3>Enlaces rápidos</h3>
-            <ul>
-              <li><Link to="/" onClick={handleHomeClick}>Inicio</Link></li>
-              <li><Link to="/productos">Productos</Link></li>
-              <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
-              <li><Link to="/ventas-empleado">Ventas</Link></li>
-            </ul>
-          </div>
-          
           <div className="footer-col">
             <h3>Contacto</h3>
             <p><FontAwesomeIcon icon={faPhone} /> +503 7698-9070</p>
             <p><FontAwesomeIcon icon={faEnvelope} /> info@helpycare.com</p>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} HelpyCare. Todos los derechos reservados.</p>
           <div className="footer-links">
@@ -229,4 +234,4 @@ function PaginaInicio() {
   );
 }
 
-export default PaginaInicio;
+export default PaginaInicio;  
