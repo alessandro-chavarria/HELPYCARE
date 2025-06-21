@@ -11,11 +11,12 @@ import SobreNosotros from './pages/SobreNosotros';
 import FinalizarCompra from './components/FinalizarCompra.jsx';
 import TerminosYCondiciones from './components/TerminosYCondiciones';
 import VentasEmpleado from './pages/VentasEmpleado';
-import RegistroCliente from './pages/RegistroCliente'; // Asegúrate de que la ruta es correcta
+import RegistroCliente from './pages/RegistroCliente';
 
-// Importa AgregarProductos que tienes en /pages/products
+// Import productos y marcas
 import AgregarProductos from './components/AgregarProducto.jsx';
 import PaginaProductos from './pages/PaginaProductos.jsx';
+import AgregarMarcasScreen from './components/AgregarMarca.jsx'; // Import correcto del componente
 
 // Import logos y estilos
 import reactLogo from './assets/react.svg';
@@ -32,8 +33,8 @@ function App() {
           <Route path="/iniciosesion" element={<InicioSesion />} />
           <Route path="/login" element={<InicioSesion />} />
           <Route path="/recovery" element={<RecuperacionContra />} />
-          <Route path="/registro-cliente" element={<RegistroCliente />} /> {/* Ruta añadida */}
-
+          <Route path="/registro-cliente" element={<RegistroCliente />} />
+          
           {/* Páginas principales */}
           <Route path="/inicio" element={<PaginaInicio />} />
           <Route path="/bienvenida" element={<BienvenidaPage />} />
@@ -41,12 +42,14 @@ function App() {
           {/* Producto detalle */}
           <Route path="/producto/:id" element={<PaginaDetalleProducto />} />
           
-          {/* Ruta para agregar productos */}
+          {/* Rutas para gestión de productos y marcas */}
           <Route path="/agregar-producto" element={<AgregarProductos />} />
-
+          <Route path="/agregar-marcas" element={<AgregarMarcasScreen />} />
+          <Route path="/marcas" element={<AgregarMarcasScreen />} />
+          
           {/* Ruta productos */}
           <Route path="/productos" element={<PaginaProductos />} />
-
+          
           {/* Otros */}
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
           <Route path="/finalizar-compra" element={<FinalizarCompra />} />
